@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vidnest | Watch</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='watch.css') }}">
+    <link rel="website icon" href="{{ url_for('static', filename='vidnest.jpg') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="video">
+            <video controls width="800", height="500">
+                <source src="{{ url_for('serve_video', filename=video.video) }}">
+            </video>
+        </div>
+        <div class="desc">
+            <h3>{{ video.title }}</h3>
+        </div>
+    </div>
+</body>
+</html>

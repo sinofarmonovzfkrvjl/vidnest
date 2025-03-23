@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vidnest</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="website icon" href="{{ url_for('static', filename='vidnest.jpg') }}">
+</head>
+<body>
+    <header>
+        <div class="navigation">
+            <div class="container">
+                <div class="logo">
+                    <h1><a href="/">Vidnest</a></h1>
+                    <p style="color: #fff;">A video sharing website</p><br>
+                    <p>{% if user.is_authenticated %} <a href="/logout" style="color: #fff;">Logout</a> {% else %} <a href="/login" style="color: #fff;">Login</a> {% endif %}</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        {% if imagenames %}
+            {% for imagename in imagenames %}
+                <a href="/watch/{{ imagename }}"><img src="/thumbnail_uploads/{{ imagename }}" alt="" width="400" height="200" style="object-fit: contain;"></a>
+            {% endfor %}
+        {% else %}
+            {{ imagename }}
+        {% endif %}
+    </main>
+</body>
+</html>

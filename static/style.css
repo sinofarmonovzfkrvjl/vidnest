@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.navigation {
+    background: #333;
+    padding: 30px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.container .logo h1 a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 40px;
+}
+
+.container h2 a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.container h2 {
+    border: 1px solid gray;
+    background: gray;
+    padding: 10px;
+}
+
+main {
+    padding: 10px;
+}
