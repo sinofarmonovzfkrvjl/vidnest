@@ -157,12 +157,19 @@ def delete_video(videoname):
 def watch(videoname):
     videoname = ".".join(videoname.split(".")[:-1])
     video = PostVideo.query.filter_by(video=videoname).first()
-    return render_template("watch.html", video=video)
+    print(video)
+    return render_template("watch.html", videoname=videoname, video=video)
 
 @app.route("/upload")
 def upload_video():
     form = VideoForm()
-
+    if form.validate_on_submit():
+        title = form.title.data
+        video = form.video.data
+        video = PostVideo(title=title, video=video)
+        db.session.add(video)
+        db.session.commit()
+        return redirect(url_for("HomePage"))
     return render_template('upload.html', form=form)
 
 @app.route("/login", methods=["GET", "POST"])

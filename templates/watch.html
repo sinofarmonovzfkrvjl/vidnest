@@ -11,12 +11,13 @@
     <div class="container">
         <div class="video">
             <video controls width="800", height="500">
-                <source src="{{ url_for('serve_video', filename=video.video) }}">
+                <source src="/videos_uploads/{{ videoname }}">
             </video>
         </div>
         <div class="desc">
             <h3>{{ video.title }}</h3>
         </div>
+        {{ video.video }}
     </div>
 </body>
 </html>

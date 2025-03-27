@@ -6,6 +6,10 @@
     <title>Vidnest</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="website icon" href="{{ url_for('static', filename='vidnest.jpg') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -14,8 +18,21 @@
                 <div class="logo">
                     <h1><a href="/">Vidnest</a></h1>
                     <p style="color: #fff;">A video sharing website</p><br>
-                    <p>{% if user.is_authenticated %} <a href="/logout" style="color: #fff;">Logout</a> {% else %} <a href="/login" style="color: #fff;">Login</a> {% endif %}</p>
                 </div>
+                {% if user.is_authenticated %}
+                <div class="dropdown">
+                    <button class="btn btn-secondary rounded-circle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        S
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="/logout">logout</a>
+                        <a class="dropdown-item" href="/upload">Upload Video</a>
+                        <a class="dropdown-item" href="#">Send Feedback</a>
+                    </div>
+                </div>
+                {% else %} 
+                <a href="/login" style="color: #fff;">login</a>    
+                {% endif %}
             </div>
         </div>
     </header>
