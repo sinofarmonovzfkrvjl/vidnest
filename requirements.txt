@@ -1,0 +1,8 @@
+flask
+flask-cors
+flask-admin
+flask-sqlalchemy
+flask-login
+flask-wtf
+opencv-python
+gunicorn
