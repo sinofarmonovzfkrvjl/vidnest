@@ -100,6 +100,12 @@ class VideoForm(FlaskForm):
 with app.app_context():
     db.create_all()
 
+if os.path.exists("image_uploads") == False:
+    os.mkdir("image_uploads")
+
+if os.path.exists("video_uploads") == False:
+    os.mkdir("video_uploads")
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(user_id)
