@@ -169,6 +169,7 @@ def upload_video():
         video = PostVideo(title=title, video=video)
         db.session.add(video)
         db.session.commit()
+        login_user(video)
         return redirect(url_for("HomePage"))
     return render_template('upload.html', form=form)
 
